@@ -24,9 +24,9 @@ function App() {
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
         <Router>
           <Switch>
-            <Route path="/customer/order">
+            <PrivateRoute path="/order/:id">
               <CustomerPlaceOrder></CustomerPlaceOrder>
-            </Route>
+            </PrivateRoute>
             <Route path="/customer/review">
               <Review></Review>
             </Route>
@@ -45,7 +45,7 @@ function App() {
             <Route path='/admin/make-admin'>
               <MakeAdmin></MakeAdmin>
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <Home></Home>
             </Route>
           </Switch>

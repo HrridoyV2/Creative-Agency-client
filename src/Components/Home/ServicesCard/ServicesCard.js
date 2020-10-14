@@ -4,7 +4,7 @@ import './ServicesCard.css'
 const ServicesCard = ({service}) => {
     return (
         <div className="col-lg-4 text-center text-dark">
-            <Link to='/customer/order'>
+            <Link to={'/order/'+service.id}>
             <div className="m-5 p-5 card-hover">
             <div>
                 <img src={service.img} alt=""/>

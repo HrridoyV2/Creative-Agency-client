@@ -2,7 +2,7 @@ import React from 'react';
 import './Contact.css'
 const Contact = () => {
     return (
-        <div className="contact row pb-5">
+        <div className="contact row pb-5 mt-5">
             <div className="col-5 text-dark">
                 <h2>Let us handle your project, professionally</h2>
                 <small>
