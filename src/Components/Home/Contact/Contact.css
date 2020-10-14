@@ -1,0 +1,10 @@
+.contact{
+    background: #FBD062;
+    padding: 50px;
+}
+.carousel-indicators li {
+    background-color: #FBD062;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+  }

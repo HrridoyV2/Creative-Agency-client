@@ -1,0 +1,11 @@
+.curved-bg {
+    height:650px;
+    position:relative;
+    background-color: #FBD062;
+    clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 8vw),
+    0 100%
+  );
+}

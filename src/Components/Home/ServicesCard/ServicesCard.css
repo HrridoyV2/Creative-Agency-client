@@ -1,0 +1,8 @@
+.card-hover{
+    border-radius: 15px;
+}
+.card-hover:hover {
+    box-shadow: 10px 10px 10px grey,
+    -10px -10px 10px gray;
+    
+}

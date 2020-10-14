@@ -1,0 +1,8 @@
+.service-card{
+    border-radius: 5%;
+    margin: 20px;
+    padding: 15px;
+}
+.service-card div img{
+    height: 150px;
+}

@@ -1,0 +1,17 @@
+.carousel{
+    padding: 50px;
+}
+.carousel img{
+    height: 450px;
+    width: 750px;
+    border-radius: 5%;
+    margin-left: 230px;
+}
+.title{
+    padding-top: 50px;
+    text-align: center;
+    color: white;
+}
+.title span{
+    color: green;
+}
