@@ -16,7 +16,7 @@ const CustomerPlaceOrder = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('https://glacial-bastion-99515.herokuapp.com/services')
+        fetch('http://localhost:5000/services')
         .then(res => res.json())
         .then(data => setServices(data));
     }, [])
@@ -25,7 +25,7 @@ const CustomerPlaceOrder = () => {
     const onSubmit = (data) => {
 
         const orderDetails = {data, ...loggedInUser, serviceImg: selectedService.img, serviceTitle:selectedService.title, serviceDescription:selectedService.description}
-        fetch('https://glacial-bastion-99515.herokuapp.com/orders', {
+        fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(orderDetails)

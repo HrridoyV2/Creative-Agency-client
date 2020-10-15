@@ -12,7 +12,7 @@ const ServiceList = () => {
     const [selectedServices, setSelectedServices] = useState([]);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     useEffect(() => {
-        fetch('https://glacial-bastion-99515.herokuapp.com/orders?email='+loggedInUser.email, {
+        fetch('http://localhost:5000/orders?email='+loggedInUser.email, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

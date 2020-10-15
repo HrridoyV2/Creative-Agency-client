@@ -27,7 +27,7 @@ import ServicesCard from '../ServicesCard/ServicesCard';
 const ProvidedServices = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
-        fetch('https://glacial-bastion-99515.herokuapp.com/services')
+        fetch('http://localhost:5000/services')
         .then(res => res.json())
         .then(data => setServices(data));
     },[])

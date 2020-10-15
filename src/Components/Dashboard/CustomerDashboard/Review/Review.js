@@ -15,7 +15,7 @@ const Review = () => {
         data.photoURL = loggedInUser.photoURL;
         
         const reviewDetails = {...data,loggedInUser,}
-        fetch('https://glacial-bastion-99515.herokuapp.com/reviews', { 
+        fetch('http://localhost:5000/reviews', { 
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(reviewDetails)

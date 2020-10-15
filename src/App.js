@@ -36,15 +36,15 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
-            <Route path="/admin/services">
-              <AdminServiceList></AdminServiceList>
-            </Route>
             <Route path="/admin/add-service">
               <AdminAddService></AdminAddService>
             </Route>
-            <Route path='/admin/make-admin'>
+            <PrivateRoute path='/admin/make-admin'>
               <MakeAdmin></MakeAdmin>
-            </Route>
+            </PrivateRoute>
+            <PrivateRoute path="/admin/services">
+              <AdminServiceList></AdminServiceList>
+            </PrivateRoute>
             <Route exact path="/">
               <Home></Home>
             </Route>

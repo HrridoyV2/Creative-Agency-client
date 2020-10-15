@@ -7,7 +7,11 @@ const ServicesCard = ({service}) => {
             <Link to={'/order/'+service.id}>
             <div className="m-5 p-5 card-hover">
             <div>
-                <img src={service.img} alt=""/>
+                {
+                    service.image ? <img src={`data:image/png;base64,${service.image.img}`} alt=""/>
+                    :
+                    <img src={service.img}/>
+                }
             </div>
     <h4 className="card-title text-dark mt-3">{service.title}</h4>
     <div className="text-dark">{service.description}</div>

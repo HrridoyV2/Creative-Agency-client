@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import headerImg from '../../../images/logos/Frame.png';
 const HeaderMain = () => {
     return (
@@ -10,7 +9,7 @@ const HeaderMain = () => {
                 <button className="btn btn-dark px-5">Hire us</button>
             </div>
             <div className="col-md-6">
-                <img src={headerImg} alt="header-photo" className="img-fluid"/>
+                <img src={headerImg} className="img-fluid"/>
             </div>
         </main>
     );

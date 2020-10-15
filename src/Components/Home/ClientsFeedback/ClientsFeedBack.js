@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const ClientsFeedBack = () => {
     const [reviews, setReviews] = useState([]);
-    fetch('https://glacial-bastion-99515.herokuapp.com/reviews')
+    fetch('http://localhost:5000/reviews')
     .then(res => res.json())
     .then(data => setReviews(data))
     return (
