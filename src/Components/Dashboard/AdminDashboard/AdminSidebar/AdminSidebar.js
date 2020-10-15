@@ -6,24 +6,24 @@ import review from '../../../../images/Extra-Logo/Group 1368.png';
 import { UserContext } from '../../../../App';
 const Sidebar = () => {
     return (
-        <div className="d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{ height: "100vh" }}>
+        <div className="d-flex flex-column justify-content-between col-2 py-md-5 px-md-4" style={{ height: "100vh" }}>
             <ul className="list-unstyled">
             <li>
                     <Link to="/admin/services" className="d-flex text-dark">
-                        <img src={shoppingCart} alt=""/> <span className="ml-3">Service list</span>
+                        <img src={shoppingCart} alt=""/> <span className="ml-md-3">Service list</span>
                     </Link>
                 </li>
                 <br/>
                 <li>
                     <Link to="/admin/add-service" className="text-dark d-flex">
                         +
-                         <span className="ml-3">Add Service</span>
+                         <span className="ml-md-3">Add Service</span>
                     </Link>
                 </li><br/>
                 <li>
                     <Link to="/admin/make-admin" className="text-dark d-flex">
                         <img src={review} alt=""/>
-                         <span className="ml-3">Make Admin</span>
+                         <span className="ml-md-3">Make Admin</span>
                     </Link>
                 </li>
             </ul>

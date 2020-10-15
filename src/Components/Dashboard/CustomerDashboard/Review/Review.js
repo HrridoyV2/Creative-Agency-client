@@ -15,7 +15,7 @@ const Review = () => {
         data.photoURL = loggedInUser.photoURL;
         
         const reviewDetails = {...data,loggedInUser,}
-        fetch('http://localhost:5000/reviews', { 
+        fetch('https://glacial-bastion-99515.herokuapp.com/reviews', { 
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(reviewDetails)
@@ -30,15 +30,18 @@ const Review = () => {
     return (
         <section >
             <div style={containerStyle} className="row">
-                <div className="col-md-2 col-sm-6 col-12">
+                <div className="col-2">
                     <Sidebar></Sidebar>
                 </div>
-                <div className="col-md-10 col-sm-12 col-12 content">
+                <div className="col-10 content">
                 <div className="d-flex">
-                    <h2 className="p-3">Order</h2>
-                <h2 className="ml-auto p-3">Hrridoy</h2>
+                    <div><h2 className="p-md-3">Order</h2></div>
+                <div className="ml-auto p-md-3 d-flex">
+                    <img src={loggedInUser.photoURL} style={{height: "40px", borderRadius: "50%"}}/>
+                    <h2>Hrridoy</h2>
+                    </div>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)}  className="col-md-5 col-sm-12 col-12 bg-light p-5">
+                <form onSubmit={handleSubmit(onSubmit)}  className="col-md-5 col-sm-12 bg-light p-md-5">
                 <input type="text" name="name" ref={register({ required: true })} defaultValue={loggedInUser.name} placeholder="Your name/company's name" className="form-control" />
                 {errors.name && <span style={{color:"red"}}>This field is required</span>}
                 <br/>

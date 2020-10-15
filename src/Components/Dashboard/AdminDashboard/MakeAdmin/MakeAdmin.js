@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/isAdmin', {
+        fetch('https://glacial-bastion-99515.herokuapp.com/isAdmin', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email: loggedInUser.email})
@@ -23,7 +23,7 @@ const MakeAdmin = () => {
     //
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = (data) => {
-        fetch('http://localhost:5000/makeAdmin', {
+        fetch('https://glacial-bastion-99515.herokuapp.com/makeAdmin', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)
@@ -38,13 +38,16 @@ const MakeAdmin = () => {
     return (
         <section >
             <div style={containerStyle} className="row">
-                <div className="col-md-2 col-sm-6 col-12">
+                <div className="col-2">
                     <AdminSidebar></AdminSidebar>
                 </div>
-                <div className="col-md-10 col-sm-12 col-12 content">
+                <div className="col-10 content">
                 <div className="d-flex">
-                    <h2 className="p-3">Order</h2>
-                <h2 className="ml-auto p-3">Hrridoy</h2>
+                    <div><h2 className="p-md-3">Order</h2></div>
+                <div className="ml-auto p-md-3 d-flex">
+                    <img src={loggedInUser.photoURL} style={{height: "40px", borderRadius: "50%"}}/>
+                    <h2>Hrridoy</h2>
+                    </div>
                 </div>
                 
                 { isAdmin &&

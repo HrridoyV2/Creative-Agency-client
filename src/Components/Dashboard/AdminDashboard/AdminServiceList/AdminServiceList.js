@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { UserContext } from '../../../../App';
 import AdminSidebar from '../AdminSidebar/AdminSidebar'
+import img from '../../../../images/icons/service1.png'
 const containerStyle = {
     backgroundColor: "#F4FDFB",
     border: '1px solid red'
@@ -13,7 +14,7 @@ const AdminServiceList = () => {
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/isAdmin', {
+        fetch('https://glacial-bastion-99515.herokuapp.com/isAdmin', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email: loggedInUser.email})
@@ -23,24 +24,27 @@ const AdminServiceList = () => {
     },[])
     //
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://glacial-bastion-99515.herokuapp.com/orders')
         .then(res => res.json())
         .then(data => setOrders(data))
     },[])
     return (
         <section >
             <div style={containerStyle} className="row">
-                <div className="col-md-2 col-sm-6 col-12">
+                <div className="col-2">
                     <AdminSidebar></AdminSidebar>
                 </div>
-                <div className="col-md-10 col-sm-12 col-12">
+                <div className="col-10">
                 <div className="d-flex">
-                    <h2 className="p-3">Order</h2>
-                <h2 className="ml-auto p-3">Hrridoy</h2>
+                    <div><h2 className="p-md-3">Order</h2></div>
+                <div className="ml-auto p-md-3 d-flex">
+                    <img src={loggedInUser.photoURL} style={{height: "40px", borderRadius: "50%"}}/>
+                    <h2>Hrridoy</h2>
+                    </div>
                 </div>
                 {isAdmin &&
                     <div className="content row">
-                <table className="table bg-light m-3">
+                <table className="table bg-light m-md-3">
                     <thead className="bg-secondary">
                         <tr>
                             <th>Name</th>

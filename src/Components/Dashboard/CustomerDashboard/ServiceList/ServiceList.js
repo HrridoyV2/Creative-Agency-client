@@ -12,7 +12,7 @@ const ServiceList = () => {
     const [selectedServices, setSelectedServices] = useState([]);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     useEffect(() => {
-        fetch('http://localhost:5000/orders?email='+loggedInUser.email, {
+        fetch('https://glacial-bastion-99515.herokuapp.com/orders?email='+loggedInUser.email, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,18 +25,21 @@ const ServiceList = () => {
     return (
         <section >
             <div style={containerStyle} className="row">
-                <div className="col-md-2 col-sm-6 col-12">
+                <div className="col-2">
                     <Sidebar></Sidebar>
                 </div>
-                <div className="col-md-10 col-sm-12 col-12 content">
+                <div className="col-10 content">
                 <div className="d-flex">
-                    <h2 className="p-3">Order</h2>
-                <h2 className="ml-auto p-3">Hrridoy</h2>
+                    <div><h2 className="p-md-3">Order</h2></div>
+                <div className="ml-auto p-md-3 d-flex">
+                    <img src={loggedInUser.photoURL} style={{height: "40px", borderRadius: "50%"}}/>
+                    <h2>Hrridoy</h2>
+                    </div>
                 </div>
                 <div className="row">
                     {
                         selectedServices.map(service => 
-                            <div className="col-6">
+                            <div className="col-md-6">
                         <div className="service-card bg-light">
                         <div>
                             <img src={service.serviceImg} className="img-fluid" />

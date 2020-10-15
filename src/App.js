@@ -27,18 +27,18 @@ function App() {
             <PrivateRoute path="/order/:id">
               <CustomerPlaceOrder></CustomerPlaceOrder>
             </PrivateRoute>
-            <Route path="/customer/review">
+            <PrivateRoute path="/customer/review">
               <Review></Review>
-            </Route>
-            <Route path="/customer/services">
+            </PrivateRoute>
+            <PrivateRoute path="/customer/services">
               <ServiceList></ServiceList>
-            </Route>
+            </PrivateRoute>
             <Route path="/login">
               <Login></Login>
             </Route>
-            <Route path="/admin/add-service">
+            <PrivateRoute path="/admin/add-service">
               <AdminAddService></AdminAddService>
-            </Route>
+            </PrivateRoute>
             <PrivateRoute path='/admin/make-admin'>
               <MakeAdmin></MakeAdmin>
             </PrivateRoute>

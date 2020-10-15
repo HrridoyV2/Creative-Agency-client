@@ -14,7 +14,7 @@ const AdminAddService = () => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/isAdmin', {
+        fetch('https://glacial-bastion-99515.herokuapp.com/isAdmin', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email: loggedInUser.email})
@@ -40,7 +40,7 @@ const AdminAddService = () => {
         formData.append('file', file)
         formData.append('title', info.title)
         formData.append('description', info.description)
-        fetch('http://localhost:5000/addService', { 
+        fetch('https://glacial-bastion-99515.herokuapp.com/addService', { 
             method: 'POST',
             body: formData
         })
@@ -55,18 +55,21 @@ const AdminAddService = () => {
     return (
         <section >
                 <div style={containerStyle} className="row">
-                <div className="col-md-2 col-sm-6 col-12">
+                <div className="col-2">
                     <AdminSidebar></AdminSidebar>
                 </div>
-                <div className="col-md-10 col-sm-12 col-12 content">
-                <div className="d-flex bg-light">
-                    <h2 className="p-3">Order</h2>
-                <h2 className="ml-auto p-3">Hrridoy</h2>
+                <div className="col-10 content">
+                <div className="d-flex">
+                    <div><h2 className="p-md-3">Order</h2></div>
+                <div className="ml-auto p-md-3 d-flex">
+                    <img src={loggedInUser.photoURL} style={{height: "40px", borderRadius: "50%"}}/>
+                    <h2>Hrridoy</h2>
+                    </div>
                 </div>
                 
             <form onSubmit={handleSubmit}>
-                <div className="row bg-light m-5">
-                    <div className="col-md-5p-5 m-5">
+                <div className="row bg-light m-md-2">
+                    <div className="col-md-5 m-md-5">
                         <h5>Service Title</h5>
                         <input type="text" onBlur={handleBlur} name="title" ref={register}placeholder="Enter title" className="form-control" />
                         {errors.title && <span style={{color:"red"}}>This field is required</span>}
@@ -82,7 +85,7 @@ const AdminAddService = () => {
                     </div>
                     
                 </div>
-                <button type="submit" className="btn btn-success" style={{marginLeft: "1000px"}}>Submit</button>
+                <button type="submit" className="btn btn-success mt-0" style={{marginLeft: "80%"}}>Submit</button>
                     
                 </form>
                 
