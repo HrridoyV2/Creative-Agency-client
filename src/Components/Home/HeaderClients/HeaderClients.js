@@ -7,20 +7,20 @@ import uber from '../../../images/logos/uber.png';
 const HeaderClients = () => {
     return (
         <div className="row">
-            <div className="offset-1 col-md-2">
-                <img src={slack} alt="slack" className="img-fluid" style={{height:"80px"}} />
+            <div className="offset-1 col-2">
+                <img src={slack} alt="slack" className="img-fluid" style={{height:"65%", width:"70%"}} />
             </div>
-            <div className="col-md-2">
-            <img src={google} alt="slack" className="img-fluid" style={{height:"80px"}} />
+            <div className="col-2">
+            <img src={google} alt="slack" className="img-fluid" style={{height:"65%", width:"70%"}} />
             </div>
-            <div className="col-md-2">
-            <img src={uber} alt="slack" className="img-fluid" style={{height:"80px"}} />
+            <div className="col-2">
+            <img src={uber} alt="slack" className="img-fluid" style={{height:"65%", width:"70%"}} />
             </div>
-            <div className="col-md-2">
-            <img src={netflix} alt="slack" className="img-fluid" style={{height:"80px"}} />
+            <div className="col-2">
+            <img src={netflix} alt="slack" className="img-fluid" style={{height:"65%", width:"70%"}} />
             </div>
-            <div className="col-md-2">
-            <img src={airbnb} alt="slack" className="img-fluid" style={{height:"80px"}} />
+            <div className="col-2">
+            <img src={airbnb} alt="slack" className="img-fluid" style={{height:"65%", width:"70%"}} />
             </div>
         </div>
     );

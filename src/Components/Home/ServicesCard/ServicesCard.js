@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ServicesCard.css'
 const ServicesCard = ({service}) => {
+    console.log(service._id);
     return (
         <div className="col-lg-4 text-center text-dark">
-            <Link to={'/order/'+service.id}>
-            <div className="m-5 p-5 card-hover">
-            <div>
+            <Link to={'/order/'+service._id}>
+            <div className="m-5 p-5 animation1">
+            <div className="animation2">
                 {
                     service.image ? <img src={`data:image/png;base64,${service.image.img}`} alt=""/>
                     :

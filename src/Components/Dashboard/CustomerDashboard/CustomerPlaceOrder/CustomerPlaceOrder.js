@@ -1,10 +1,11 @@
 import React, { useContext, useEffect } from 'react';
+import './CustomerPlaceOrder.css'
 import Sidebar from '../CustomerSidebar/CustomerSidebar';
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from 'react-router-dom';
 import { UserContext } from '../../../../App';
 import { useState } from 'react';
-
+import upload from '../../../../images/Extra-Logo/Group 1369.png';
 const CustomerPlaceOrder = () => {
     const {id} = useParams();
     const { register, handleSubmit, errors } = useForm();
@@ -16,11 +17,10 @@ const CustomerPlaceOrder = () => {
         .then(res => res.json())
         .then(data => setServices(data));
     }, [])
-    const selectedService = services.find(service => service.id === id);
+    const selectedService = services.find(service => service._id === id);
     
     const onSubmit = (data) => {
-
-        const orderDetails = {data, ...loggedInUser, serviceImg: selectedService.img, serviceTitle:selectedService.title, serviceDescription:selectedService.description}
+        const orderDetails = {data, ...loggedInUser, serviceImg: selectedService.img, serviceTitle:selectedService.title, serviceDescription:selectedService.description, status:"Pending"}
         fetch('https://glacial-bastion-99515.herokuapp.com/orders', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -46,7 +46,7 @@ const CustomerPlaceOrder = () => {
                     <div><h2 className="p-md-3">Order</h2></div>
                 <div className="ml-auto p-md-3 d-flex">
                     <img src={loggedInUser.photoURL} style={{height: "40px", borderRadius: "50%"}}/>
-                    <h2>Hrridoy</h2>
+                    <h2>{loggedInUser.name}</h2>
                     </div>
                 </div>
                 <div className="row content">
@@ -63,11 +63,17 @@ const CustomerPlaceOrder = () => {
                 <textarea name="details" id="" cols="30" ref={register({ required: true })} rows="10" placeholder="Project Details" className="form-control" />
                 {errors.details && <span style={{color:"red"}}>This field is required</span>}
                 <br/>
-                    <div className="row ">
-                    <input type="number" name="price" ref={register({ required: true })} placeholder="Price" className="form-control col-md-6" />
+                <div className="row ">
+                    <div className="col-6">
+                    <input type="number" name="price" ref={register({ required: true })} placeholder="Price" className="form-control p-4" />
                     {errors.price && <span style={{color:"red"}}>This field is required</span>}
-                
-                <input type="file" name="file" className="form-control col-md-6"/>
+                    </div>
+                <div className="col-6">
+                    <label htmlFor="file-upload" className="custom-file-upload">
+                        <span><img src={upload} className="img-fluid" /></span>
+                    </label>
+                    <input type="file" id="file-upload"/>
+                </div>
                     </div>
                     <br/>
                     <button type="submit" className="btn btn-dark px-5">Send</button>

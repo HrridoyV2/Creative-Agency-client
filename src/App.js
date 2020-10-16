@@ -10,11 +10,12 @@ import Home from './Components/Home/Home/Home';
 import Login from './Components/Login/Login'
 import PrivateRoute from './Components/Login/PrivateRoute'
 import CustomerPlaceOrder from './Components/Dashboard/CustomerDashboard/CustomerPlaceOrder/CustomerPlaceOrder'
-import Review from './Components/Dashboard/CustomerDashboard/Review/Review'
-import ServiceList from './Components/Dashboard/CustomerDashboard/ServiceList/ServiceList'
+import Review from './Components/Dashboard/CustomerDashboard/CustomerReview/CustomerReview'
+import ServiceList from './Components/Dashboard/CustomerDashboard/CustomerServiceList/CustomerServiceList'
 import AdminServiceList from './Components/Dashboard/AdminDashboard/AdminServiceList/AdminServiceList'
 import AdminAddService from './Components/Dashboard/AdminDashboard/AdminAddService/AdminAddService'
-import MakeAdmin from './Components/Dashboard/AdminDashboard/MakeAdmin/MakeAdmin'
+import MakeAdmin from './Components/Dashboard/AdminDashboard/AdminMakeAdmin/AdminMakeAdmin'
+import NotFound from './Components/NotFound/NotFound';
 
 export const UserContext = createContext();
 
@@ -30,7 +31,7 @@ function App() {
             <PrivateRoute path="/customer/review">
               <Review></Review>
             </PrivateRoute>
-            <PrivateRoute path="/customer/services">
+            <PrivateRoute path="/customer/ordered-services">
               <ServiceList></ServiceList>
             </PrivateRoute>
             <Route path="/login">
@@ -42,11 +43,14 @@ function App() {
             <PrivateRoute path='/admin/make-admin'>
               <MakeAdmin></MakeAdmin>
             </PrivateRoute>
-            <PrivateRoute path="/admin/services">
+            <PrivateRoute path="/admin/ordered-services">
               <AdminServiceList></AdminServiceList>
             </PrivateRoute>
             <Route exact path="/">
               <Home></Home>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
         </Router>

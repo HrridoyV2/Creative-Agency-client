@@ -9,12 +9,12 @@ const Sidebar = () => {
         <div className="d-flex flex-column justify-content-between col-2 py-5  px-md-4" style={{ height: "100vh" }}>
             <ul className="list-unstyled">
                 <li>
-                    <Link to="/customer/order" className="d-flex text-dark">
+                    <Link to="/" className="d-flex text-dark">
                         <img src={shoppingCart} alt=""/> <span className="ml-md-3">Order</span>
                     </Link>
                 </li><br/>
                 <li>
-                    <Link to="/customer/services" className="text-dark d-flex">
+                    <Link to="/customer/ordered-services" className="text-dark d-flex">
                         <img src={service}/>
                          <span className="ml-md-3">Service list</span>
                     </Link>

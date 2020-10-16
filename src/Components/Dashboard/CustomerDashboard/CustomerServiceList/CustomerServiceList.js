@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import './ServiceList.css'
+import './CustomerServiceList.css'
 import service1 from '../../../../images/icons/service1.png'
 import Sidebar from '../CustomerSidebar/CustomerSidebar';
 import { useState } from 'react';
@@ -33,7 +33,7 @@ const ServiceList = () => {
                     <div><h2 className="p-md-3">Order</h2></div>
                 <div className="ml-auto p-md-3 d-flex">
                     <img src={loggedInUser.photoURL} style={{height: "40px", borderRadius: "50%"}}/>
-                    <h2>Hrridoy</h2>
+                    <h2>{loggedInUser.name}</h2>
                     </div>
                 </div>
                 <div className="row">
@@ -41,8 +41,9 @@ const ServiceList = () => {
                         selectedServices.map(service => 
                             <div className="col-md-6">
                         <div className="service-card bg-light">
-                        <div>
+                        <div className="d-flex">
                             <img src={service.serviceImg} className="img-fluid" />
+                            <p className={`ordered-status ${service.status}`}><span>{`${service.status}`}</span></p>
                         </div>
                         <h3>{service.serviceTitle}</h3>
                         <p>{service.serviceDescription}</p>

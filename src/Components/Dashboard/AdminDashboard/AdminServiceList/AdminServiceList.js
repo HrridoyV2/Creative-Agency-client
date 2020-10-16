@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Dropdown } from 'react-bootstrap';
+import { Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import { UserContext } from '../../../../App';
 import AdminSidebar from '../AdminSidebar/AdminSidebar'
-import img from '../../../../images/icons/service1.png'
 const containerStyle = {
     backgroundColor: "#F4FDFB",
     border: '1px solid red'
@@ -28,6 +27,39 @@ const AdminServiceList = () => {
         .then(res => res.json())
         .then(data => setOrders(data))
     },[])
+
+    // const [value,setValue]=useState('');
+    // const handleSelect=(e)=>{
+    //   console.log(e);
+    //   setValue(e) 
+    // }
+    // const updateStatus = (status) => {
+    //     console.log(status);
+    // }
+    //
+    const options = ["Pending","On-Goning", "Done"];
+    const [status,setStatus] = useState('Pending');
+    const [id, setId] = useState('');
+    const updateStatus = (id) => {
+        setId(id);
+    }
+    const  onSelect = (event) => { 
+        setStatus(event);
+        const updated = {id, status};
+        fetch(`https://glacial-bastion-99515.herokuapp.com/update/${id}`, {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(updated)
+        })
+        .then(res => res.json())
+        .then(success => {
+            if(success){
+                alert('Status updated successfully')
+            }
+        })
+        // e.preventDefault();
+    }
+    //
     return (
         <section >
             <div style={containerStyle} className="row">
@@ -39,10 +71,10 @@ const AdminServiceList = () => {
                     <div><h2 className="p-md-3">Order</h2></div>
                 <div className="ml-auto p-md-3 d-flex">
                     <img src={loggedInUser.photoURL} style={{height: "40px", borderRadius: "50%"}}/>
-                    <h2>Hrridoy</h2>
+                    <h2>{loggedInUser.name}</h2>
                     </div>
                 </div>
-                {isAdmin &&
+                {/* {isAdmin && */}
                     <div className="content row">
                 <table className="table bg-light m-md-3">
                     <thead className="bg-secondary">
@@ -62,17 +94,37 @@ const AdminServiceList = () => {
                                 <td>{order.serviceTitle}</td>
                                 <td>{order.serviceDescription}</td>
                                 <td>
-                                <Dropdown>
-                                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                        Dropdown Button
-                                    </Dropdown.Toggle>
-    
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                <DropdownButton
+                                    alignRight
+                                    title={order.status}
+                                    id="dropdown-menu-align-right"
+                                    onClick={() => updateStatus(order._id)}
+                                    onSelect={onSelect}>
+                                    
+                                        {options.map(option => (
+                                            <Dropdown.Item
+                                            eventKey={option}
+                                            key={option}>
+                                            {option}
+                                            </Dropdown.Item>
+                                        ))}
+                                    
+                                </DropdownButton>
+                                {/* <Dropdown onSelect={onSelect}
+                                 onClick={() => updateStatus(order._id)}
+                                >
+                                    <Dropdown.Toggle
+                                        >{status}</Dropdown.Toggle>
+                                        <Dropdown.Menu>
+                                        {options.map(option => (
+                                            <Dropdown.Item
+                                            eventKey={option}
+                                            key={option}>
+                                            {option}
+                                            </Dropdown.Item>
+                                        ))}
                                     </Dropdown.Menu>
-                                    </Dropdown>
+                                </Dropdown> */}
                                 </td>
                             </tr>
                             )
@@ -81,7 +133,7 @@ const AdminServiceList = () => {
                     </tbody>
                 </table>
                 </div>
-                }
+                {/* } */}
                 
                 </div>
                 

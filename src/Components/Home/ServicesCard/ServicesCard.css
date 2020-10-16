@@ -1,8 +1,26 @@
-.card-hover{
+
+.animation1{
     border-radius: 15px;
+    animation-name: sample1;
+    animation-duration: 2s;
+    animation-delay: 1s;
 }
-.card-hover:hover {
-    box-shadow: 10px 10px 10px grey,
-    -10px -10px 10px gray;
-    
+.animation2{
+    animation-name: sample2;
+    animation-duration: .5s;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
 }
+
+ @keyframes sample1{
+    0%{box-sizing: 0 0 0 white;}
+    100%{box-shadow: 10px 10px 50px grey,
+        -10px -10px 50px gray;}
+}
+@keyframes sample2{
+    0%{transform: rotate(-15deg)}
+    50%{transform: rotate(15deg)}
+    50%{transform: rotate(15deg)}
+    100%{transform: rotate(-15deg)}
+} 
+

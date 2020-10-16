@@ -1,0 +1,45 @@
+.service-card{
+    border-radius: 5%;
+    margin: 20px;
+    padding: 15px;
+}
+.service-card div img{
+    height: 150px;
+}
+.ordered-status{
+    margin-left: auto;
+    text-align: center;
+    padding: 8px;
+    width: 108px;
+    height: 40px;
+    border-radius: 5px;
+}
+.ordered-status span{
+    
+width: 59px;
+height: 19px;
+/* padding: 150px; */
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 19px;
+}
+.Pending {
+    background: #FFE3E3;
+}
+.Pending span{
+    color: #FF4545;
+}
+.On-Going{
+    background: #FFE3E3;
+}
+.On-Going span{
+    color: #FF4545;
+}
+.Done{
+    background: #C6FFE0;
+}
+.Done span{
+    color: #009444;
+}

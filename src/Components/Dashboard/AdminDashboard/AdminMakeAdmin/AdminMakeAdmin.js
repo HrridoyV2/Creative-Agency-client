@@ -46,15 +46,15 @@ const MakeAdmin = () => {
                     <div><h2 className="p-md-3">Order</h2></div>
                 <div className="ml-auto p-md-3 d-flex">
                     <img src={loggedInUser.photoURL} style={{height: "40px", borderRadius: "50%"}}/>
-                    <h2>Hrridoy</h2>
+                    <h2>{loggedInUser.name}</h2>
                     </div>
                 </div>
                 
                 { isAdmin &&
                     <form  onSubmit={handleSubmit(onSubmit)}>
                     <div className="d-flex col-md-5">
-                    <input type="text" name="admin" ref={register({ required: true })} placeholder="jon@gmail.com" className="form-control"/>
-                    {errors.admin && <span style={{color:"red"}}>This field is required</span>}
+                    <input type="text" name="email" ref={register({ required: true })} placeholder="jon@gmail.com" className="form-control"/>
+                    {errors.email && <span style={{color:"red"}}>This field is required</span>}
                     <button type="submit" className="btn btn-success">Submit</button>
                     </div>
                 </form>

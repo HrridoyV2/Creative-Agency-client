@@ -6,3 +6,6 @@
     text-align-last: left;
     width: 400px;
 }
+.round{
+    border-radius: 50%;
+}

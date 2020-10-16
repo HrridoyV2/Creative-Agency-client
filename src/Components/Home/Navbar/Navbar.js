@@ -24,6 +24,9 @@ const Navbar = () => {
         <Link to="/" class="nav-link">Contact us</Link>
       </li>
       <li class="nav-item">
+        <Link to="/admin/ordered-services" class="nav-link">Admin</Link>
+      </li>
+      <li class="nav-item">
         <Link to="/" class="nav-link"><button className="btn btn-dark px-5">Login</button></Link>
       </li>
     </ul>

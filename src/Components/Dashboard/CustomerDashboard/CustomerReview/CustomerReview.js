@@ -38,7 +38,7 @@ const Review = () => {
                     <div><h2 className="p-md-3">Order</h2></div>
                 <div className="ml-auto p-md-3 d-flex">
                     <img src={loggedInUser.photoURL} style={{height: "40px", borderRadius: "50%"}}/>
-                    <h2>Hrridoy</h2>
+                    <h2>{loggedInUser.name}</h2>
                     </div>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}  className="col-md-5 col-sm-12 bg-light p-md-5">
@@ -47,9 +47,6 @@ const Review = () => {
                 <br/>
                 <input type="text" name="email" ref={register({ required: true })} defaultValue={loggedInUser.email} placeholder="Your email address" className="form-control" />
                 {errors.email && <span style={{color:"red"}}>This field is required</span>}
-                <br/>
-                <input type="text" name="service" ref={register({ required: true })} placeholder="Graphic Design" className="form-control" />
-                {errors.service && <span style={{color:"red"}}>This field is required</span>}
                 <br/>
                 <textarea name="description" ref={register({ required: true })} id="" cols="30" rows="10" placeholder="Project Details" className="form-control" />
                 {errors.description && <span style={{color:"red"}}>This field is required</span>}

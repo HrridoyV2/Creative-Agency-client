@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { UserContext } from '../../../../App';
 import AdminSidebar from '../AdminSidebar/AdminSidebar'
-
+import upload from '../../../../images/Extra-Logo/Group 1369.png';
 const containerStyle = {
     backgroundColor: "#F4FDFB",
     border: '1px solid red'
@@ -25,34 +25,34 @@ const AdminAddService = () => {
     //
     const { register, errors } = useForm();
     const [info, setInfo] = useState({});
-    const [file, setFile] = useState(null)
-    const handleBlur = e => {
+    const [file, setFile] = useState(null);
+    const handleBlur = (e) => {
         const newInfo = {...info};
         newInfo[e.target.name] = e.target.value;
         setInfo(newInfo);
     }
     const handleFileChange = (e) => {
-        const newFile = e.target.files[0]
-        setFile(newFile)
+        const newFile = e.target.files[0];
+        setFile(newFile);
     }
-    const handleSubmit = () => {
-        const formData = new FormData()
-        formData.append('file', file)
-        formData.append('title', info.title)
-        formData.append('description', info.description)
-        fetch('https://glacial-bastion-99515.herokuapp.com/addService', { 
+    const handleSubmit =(e) => {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('title', info.title);
+        formData.append('description', info.description);
+        e.preventDefault();
+        fetch('https://glacial-bastion-99515.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })
         .then(response => response.json())
-        .then(data => {
-            console.log(data);
+        .then(success => {
+            if(success){
+                alert('Service added Successfull!!!!')
+            }
         })
-        .catch(error => {
-            console.error(error);
-        })
-    };
-    return (
+    }
+       return (
         <section >
                 <div style={containerStyle} className="row">
                 <div className="col-2">
@@ -63,11 +63,13 @@ const AdminAddService = () => {
                     <div><h2 className="p-md-3">Order</h2></div>
                 <div className="ml-auto p-md-3 d-flex">
                     <img src={loggedInUser.photoURL} style={{height: "40px", borderRadius: "50%"}}/>
-                    <h2>Hrridoy</h2>
+                    <h2>{loggedInUser.name}</h2>
                     </div>
                 </div>
                 
-            <form onSubmit={handleSubmit}>
+            {
+                isAdmin &&
+                <form onSubmit={handleSubmit}>
                 <div className="row bg-light m-md-2">
                     <div className="col-md-5 m-md-5">
                         <h5>Service Title</h5>
@@ -80,7 +82,13 @@ const AdminAddService = () => {
                     </div>
                     <div className="col-md-4">
                         <h5>Icon</h5>
-                        <input type="file" onChange={handleFileChange} name="file" ref={register}placeholder="Enter file" className="form-control"/>
+
+                        <label htmlFor="file-upload" className="custom-file-upload">
+                        <span><img src={upload} className="img-fluid" /></span>
+                    </label> 
+                     <input type="file" onChange={handleFileChange} name="file" ref={register}  id="file-upload"/>
+
+                        {/* <input type="file" onChange={handleFileChange} name="file" ref={register}placeholder="Enter file" className="form-control"/> */}
                         {errors.file && <span style={{color:"red"}}>This field is required</span>}
                     </div>
                     
@@ -88,6 +96,7 @@ const AdminAddService = () => {
                 <button type="submit" className="btn btn-success mt-0" style={{marginLeft: "80%"}}>Submit</button>
                     
                 </form>
+                }
                 
                 </div>
                 
