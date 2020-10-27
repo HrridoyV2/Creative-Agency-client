@@ -11,4 +11,3 @@
 - Intered people can easily give their review and reviews are show dynamicly
 - There is also a admin dashboard
 - admin can easily see all orders, add services and add admin any time
-- 
