@@ -11,3 +11,5 @@
 - There is also a admin dashboard
 - admin can easily see all orders, add services and add admin any time
 ## Used Technoloy: `React`, `React-router`, `Firebase`, `Bootstrap`, `Stripe`, `React-Form-hook`, `Fontawesome`
+
+# [Resume Link](https://drive.google.com/file/d/1WbxGWa7vjGYUeyp7ex6QgOYhkk2iaBmV/view?usp=sharing)
